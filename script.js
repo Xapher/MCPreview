@@ -20,6 +20,6 @@ function load() {
 
 var curBlock;
 function changeBlock(argument) {
-    document.getElementById(argument).innerHTML = "CLICKED";
+    argument.innerHTML = "CLICKED";
     console.log(argument);
 }
