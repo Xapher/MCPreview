@@ -1,4 +1,7 @@
 function load() {
+        document.GetElementById("grid").style.maxHeight = window.innerHeight;
+        document.GetElementById("grid").style.maxWidth = window.innerHeight;
+
 	var buttonStringStart = "<button class=MCStyle id=";
         var width = window.innerWidth * .95;
         var testWidth = width / 50;
