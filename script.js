@@ -1,6 +1,8 @@
 function load() {
 	var buttonStringStart = "<button class=MCStyle id=";
-        var buttonMiddle= " style=\"width:" + (window.innerWidth * .95) * .02 + "px; height:" + (window.innerWidth * .95) * .02 + "px;\"onclick=changeBlock(";
+        var width = window.innerWidth * .95;
+        var testWidth = width / 50;
+        var buttonMiddle= " style=\"width:" + testWidth + "px; height:" + testWidth + "px;background-image:url('blocks/grass_top.png');\"onclick=changeBlock(";
         var buttonStringEnd = ")></button>";
 	var n = ((window.innerWidth * .8) * .02) / 100;
 	var divString = "";
