@@ -1,5 +1,5 @@
 function load() {
-	var buttonString = "<button id=MCStyle style=\"width:" + (window.innerWidth * .8) * .02 + "px; height:" + (window.innerWidth * .8) * .02 + "px;\"></button>";
+	var buttonString = "<button id=MCStyle style=\"width:" + (window.innerWidth * .8) * .02 + "px; height:" + (window.innerWidth * .8) * .02 + "px;\"onclick=changeBlock()></button>";
 	var n = ((window.innerWidth * .8) * .02) / 100;
 	var divString = "";
 	for (var i = 0; i < 100; i++) {
