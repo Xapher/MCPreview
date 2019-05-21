@@ -7,7 +7,7 @@ function load() {
 	var n = ((window.innerWidth * .8) * .02) / 100;
 	var divString = "";
         var id = "mcButton";
-	for (var i = 0; i < 100; i++) {
+	for (var i = 0; i < 50 * 50; i++) {
 		divString =  divString + (buttonStringStart + (id + i) + buttonMiddle + id + i + buttonStringEnd);	
 	}
 	//window.innerWidth
