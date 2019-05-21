@@ -21,6 +21,6 @@ function load() {
 var curBlock = "blocks/grass_top.png";
 function changeBlock(argument) {
     argument.innerHTML = "CLICKED";
-    argument.style.backgroundImage = "url(" + curBlock + ")";
+    argument.style.backgroundImage = "url('" + curBlock + "')";
     console.log(argument);
 }
