@@ -21,5 +21,5 @@ function load() {
 var curBlock;
 function changeBlock(argument) {
     document.getElementById(argument);
-    Console.log(argument);
+    Console.debug(argument);
 }
