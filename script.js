@@ -1,6 +1,6 @@
 function load() {
-        document.getElementById("grid").style.height = window.innerHeight;
-        document.getElementById("grid").style.width = window.innerHeight;
+        document.getElementById("grid").style.height = window.innerHeight + "px";
+        document.getElementById("grid").style.width = window.innerHeight + "px";
 
 	var buttonStringStart = "<button class=MCStyle id=";
         var width = window.innerWidth * .95;
