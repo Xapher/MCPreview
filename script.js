@@ -1,9 +1,10 @@
 function load() {
-        document.getElementById("grid").style.height = window.innerHeight + "px";
-        document.getElementById("grid").style.width = window.innerHeight + "px";
+        var width = window.innerHeight * .95;
+        document.getElementById("grid").style.height = width + "px";
+        document.getElementById("grid").style.width = width + "px";
 
 	var buttonStringStart = "<button class=MCStyle id=";
-        var width = window.innerHeight;
+        
         var testWidth = width / 50;
         var buttonMiddle= " style=\"width:" + testWidth + "px; height:" + testWidth + "px;background-image:url('blocks/grass_top.png');\"onclick=changeBlock(";
         var buttonStringEnd = ")></button>";
