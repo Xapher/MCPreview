@@ -5,6 +5,10 @@
         border: none;
 }
 
+#grid {
+        display:inline-block;
+}
+
 #select {
-        float:left;
+        float:right;
 }
