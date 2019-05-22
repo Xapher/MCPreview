@@ -30,6 +30,6 @@ function changeBlock(argument) {
     console.log(argument);
 }
 
-function changeblocks(arg) {
+function changeblock(arg) {
         curBlock = arg;
 }
