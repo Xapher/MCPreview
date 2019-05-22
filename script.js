@@ -29,3 +29,7 @@ function changeBlock(argument) {
     argument.style.backgroundImage = "url('" + curBlock + "')";
     console.log(argument);
 }
+
+function changeblocks(arg) {
+        curBlock = arg;
+}
