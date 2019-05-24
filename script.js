@@ -26,6 +26,13 @@ function load() {
 
 var curBlock = "blocks/grass_top.png";
 function changeBlock(argument) {
+    if(curBlock == "blocks/grass_top.png")
+    {
+        argument.style.opacity = 0.6;
+    }
+    else {
+        argument.style.opacity = 1;
+    }
     argument.style.backgroundImage = "url('" + curBlock + "')";
     console.log(argument);
 }
