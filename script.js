@@ -6,7 +6,7 @@ function load() {
 	var buttonStringStart = "<button class=MCStyle id=";
         
         var testWidth = width / gridSize;
-        var buttonMiddle= " style=\"width:" + testWidth + "px; background-size:100%; height:" + testWidth + "px;background-image:url('blocks/grass_top.png');\"onclick=changeBlock(";
+        var buttonMiddle= " style=\"width:" + testWidth + "px; opacity:0.6; background-size:100%; height:" + testWidth + "px;background-image:url('blocks/grass_top.png');\"onclick=changeBlock(";
         var buttonStringEnd = ")></button>";
 	var n = ((window.innerWidth * .8) * .02) / 100;
 	var divString = "";
