@@ -25,12 +25,14 @@ function load() {
 }
 
 var curBlock = "blocks/grass_top.png";
+var grc = "url(blocks/grass_top.png)";
 function changeBlock(argument) {
-    if(curBlock == "blocks/grass_top") {
-        
+    var curBack = "url(" + argument.style.backgroundImage + ")";
+    if(curBack == gr) {
+        console.log(--grass);
     }
 
-    console.log(argument.style.backgroundImage);
+    
 
     if(curBlock == "blocks/grass_top.png")
     {
