@@ -27,7 +27,7 @@ function load() {
 var curBlock = "blocks/grass_top.png";
 var grc = "url(blocks/grass_top.png)";
 function changeBlock(argument) {
-    var curBack = "url(" + argument.style.backgroundImage + ")";
+    var curBack = argument.style.backgroundImage;
     if(curBack == grc) {
         console.log("--grass");
     }
