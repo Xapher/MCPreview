@@ -1,4 +1,10 @@
 function load() {
+        var canvas = document.getElementById("webgl-logo");
+        var context = canvas.getContext('2d');
+			
+         context.font = '20pt Calibri';
+         context.fillStyle = 'green';
+         context.fillText('Welcome to Tutorialspoint', 70, 70);
         var width = window.innerHeight * .95;
         document.getElementById("grid").style.height = width + "px";
         document.getElementById("grid").style.width = width + "px";
