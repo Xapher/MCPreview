@@ -28,6 +28,21 @@ function load() {
 	
 }
 
+var grass = width*width;
+var glass = 0;
+var stone = 0;
+var cobblestone = 0;
+var obsidian = 0;
+var bricks = 0;
+var plankOak = 0;
+var plankBirch = 0;
+var plankSpruce = 0;
+var plankDarkOak = 0;
+var plankJungle = 0;
+var plankAcacia = 0;
+
+
+
 var curBlock = "blocks/grass_top.png";
 var grc = "url(\"blocks/grass_top.png\")";
 function changeBlock(argument) {
