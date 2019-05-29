@@ -86,16 +86,6 @@ function load() {
          gl.drawArrays(gl.POINTS, 0, 3);
 
 
-
-
-
-
-
-
-
-
-        gl.clearColor(0.9,0.9,0.8,1);
-        gl.clear(gl.COLOR_BUFFER_BIT);
         
         document.getElementById("grid").style.height = width + "px";
         document.getElementById("grid").style.width = width + "px";
