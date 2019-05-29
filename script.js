@@ -4,7 +4,7 @@ var vertices = [
             -0.25,0.25,0.0, 
          ];
 
-
+var width = window.innerHeight * .95;
 
 function load() {
         var canvas = document.getElementById("webgl-logo");
@@ -96,7 +96,7 @@ function load() {
 
         gl.clearColor(0.9,0.9,0.8,1);
         gl.clear(gl.COLOR_BUFFER_BIT);
-        var width = window.innerHeight * .95;
+        
         document.getElementById("grid").style.height = width + "px";
         document.getElementById("grid").style.width = width + "px";
         var gridSize = 25;
