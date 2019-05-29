@@ -1,5 +1,4 @@
- /*============= Creating a canvas ======================*/
-         var canvas = document.getElementById('webgl-logo');
+         var canvas = document.getElementById("webgl-logo");
          gl = canvas.getContext('experimental-webgl');
 
          /*========== Defining and storing the geometry ==========*/
