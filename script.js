@@ -1,5 +1,4 @@
-         var canvas = document.getElementById("webgl-logo");
-         gl = canvas.getContext('experimental-webgl');
+         
 
          /*========== Defining and storing the geometry ==========*/
 
@@ -27,21 +26,7 @@
             16,17,18, 16,18,19, 20,21,22, 20,22,23 
          ];
 
-         // Create and store data into vertex buffer
-         var vertex_buffer = gl.createBuffer ();
-         gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
-         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-
-         // Create and store data into color buffer
-         var color_buffer = gl.createBuffer ();
-         gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
-         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
-
-         // Create and store data into index buffer
-         var index_buffer = gl.createBuffer ();
-         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, index_buffer);
-         gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
-
+         
          /*=================== SHADERS =================== */
 
          var vertCode = 'attribute vec3 position;'+
@@ -61,35 +46,7 @@
                'gl_FragColor = vec4(vColor, 1.);'+
             '}';
 
-         var vertShader = gl.createShader(gl.VERTEX_SHADER);
-         gl.shaderSource(vertShader, vertCode);
-         gl.compileShader(vertShader);
-
-         var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
-         gl.shaderSource(fragShader, fragCode);
-         gl.compileShader(fragShader);
-
-         var shaderprogram = gl.createProgram();
-         gl.attachShader(shaderprogram, vertShader);
-         gl.attachShader(shaderprogram, fragShader);
-         gl.linkProgram(shaderprogram);
-
-         /*======== Associating attributes to vertex shader =====*/
-         var _Pmatrix = gl.getUniformLocation(shaderprogram, "Pmatrix");
-         var _Vmatrix = gl.getUniformLocation(shaderprogram, "Vmatrix");
-         var _Mmatrix = gl.getUniformLocation(shaderprogram, "Mmatrix");
-
-         gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
-         var _position = gl.getAttribLocation(shaderprogram, "position");
-         gl.vertexAttribPointer(_position, 3, gl.FLOAT, false,0,0);
-         gl.enableVertexAttribArray(_position);
-
-         gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
-         var _color = gl.getAttribLocation(shaderprogram, "color");
-         gl.vertexAttribPointer(_color, 3, gl.FLOAT, false,0,0) ;
-         gl.enableVertexAttribArray(_color);
-         gl.useProgram(shaderprogram);
-
+        
          /*==================== MATRIX ====================== */
 
          function get_projection(angle, a, zMin, zMax) {
@@ -101,45 +58,6 @@
                0, 0, (-2*zMax*zMin)/(zMax-zMin), 0 
 			   ];
          }
-
-         var proj_matrix = get_projection(40, canvas.width/canvas.height, 1, 100);
-         var mo_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
-         var view_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
-
-         view_matrix[14] = view_matrix[14]-6;
-
-         /*================= Mouse events ======================*/
-
-         var AMORTIZATION = 0.95;
-         var drag = false;
-         var old_x, old_y;
-         var dX = 0, dY = 0;
-
-         var mouseDown = function(e) {
-            drag = true;
-            old_x = e.pageX, old_y = e.pageY;
-            e.preventDefault();
-            return false;
-         };
-
-         var mouseUp = function(e){
-            drag = false;
-         };
-
-         var mouseMove = function(e) {
-            if (!drag) return false;
-            dX = (e.pageX-old_x)*2*Math.PI/canvas.width,
-            dY = (e.pageY-old_y)*2*Math.PI/canvas.height;
-            THETA+= dX;
-            PHI+=dY;
-            old_x = e.pageX, old_y = e.pageY;
-            e.preventDefault();
-         };
-
-         canvas.addEventListener("mousedown", mouseDown, false);
-         canvas.addEventListener("mouseup", mouseUp, false);
-         canvas.addEventListener("mouseout", mouseUp, false);
-         canvas.addEventListener("mousemove", mouseMove, false);
 
          /*=========================rotation================*/
 
@@ -221,10 +139,102 @@
 
             window.requestAnimationFrame(animate);
          }
-         animate(0);
+         
 var width = window.innerHeight * .95;
 
 function load() {
+        var canvas = document.getElementById("webgl-logo");
+         gl = canvas.getContext('experimental-webgl');
+         // Create and store data into vertex buffer
+         var vertex_buffer = gl.createBuffer ();
+         gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
+
+         // Create and store data into color buffer
+         var color_buffer = gl.createBuffer ();
+         gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
+         gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(colors), gl.STATIC_DRAW);
+
+         // Create and store data into index buffer
+         var index_buffer = gl.createBuffer ();
+         gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, index_buffer);
+         gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+          var vertShader = gl.createShader(gl.VERTEX_SHADER);
+         gl.shaderSource(vertShader, vertCode);
+         gl.compileShader(vertShader);
+
+         var fragShader = gl.createShader(gl.FRAGMENT_SHADER);
+         gl.shaderSource(fragShader, fragCode);
+         gl.compileShader(fragShader);
+
+         var shaderprogram = gl.createProgram();
+         gl.attachShader(shaderprogram, vertShader);
+         gl.attachShader(shaderprogram, fragShader);
+         gl.linkProgram(shaderprogram);
+
+         /*======== Associating attributes to vertex shader =====*/
+         var _Pmatrix = gl.getUniformLocation(shaderprogram, "Pmatrix");
+         var _Vmatrix = gl.getUniformLocation(shaderprogram, "Vmatrix");
+         var _Mmatrix = gl.getUniformLocation(shaderprogram, "Mmatrix");
+
+         gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
+         var _position = gl.getAttribLocation(shaderprogram, "position");
+         gl.vertexAttribPointer(_position, 3, gl.FLOAT, false,0,0);
+         gl.enableVertexAttribArray(_position);
+
+         gl.bindBuffer(gl.ARRAY_BUFFER, color_buffer);
+         var _color = gl.getAttribLocation(shaderprogram, "color");
+         gl.vertexAttribPointer(_color, 3, gl.FLOAT, false,0,0) ;
+         gl.enableVertexAttribArray(_color);
+         gl.useProgram(shaderprogram);
+
+         
+         var proj_matrix = get_projection(40, canvas.width/canvas.height, 1, 100);
+         var mo_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
+         var view_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
+
+         view_matrix[14] = view_matrix[14]-6;
+
+         /*================= Mouse events ======================*/
+
+         var AMORTIZATION = 0.95;
+         var drag = false;
+         var old_x, old_y;
+         var dX = 0, dY = 0;
+
+         var mouseDown = function(e) {
+            drag = true;
+            old_x = e.pageX, old_y = e.pageY;
+            e.preventDefault();
+            return false;
+         };
+
+         var mouseUp = function(e){
+            drag = false;
+         };
+
+         var mouseMove = function(e) {
+            if (!drag) return false;
+            dX = (e.pageX-old_x)*2*Math.PI/canvas.width,
+            dY = (e.pageY-old_y)*2*Math.PI/canvas.height;
+            THETA+= dX;
+            PHI+=dY;
+            old_x = e.pageX, old_y = e.pageY;
+            e.preventDefault();
+         };
+
+         canvas.addEventListener("mousedown", mouseDown, false);
+         canvas.addEventListener("mouseup", mouseUp, false);
+         canvas.addEventListener("mouseout", mouseUp, false);
+         canvas.addEventListener("mousemove", mouseMove, false);
+
+animate(0);
+
+
+
+
+
+
         document.getElementById("grid").style.height = width + "px";
         document.getElementById("grid").style.width = width + "px";
         var gridSize = 25;
