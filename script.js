@@ -146,12 +146,18 @@
          
 var width = window.innerHeight * .95;
 var canvas;
+var _Pmatrix;
+var _Vmatrix;
+var _Mmatrix;
 var mo_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
          var view_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
 var vertex_buffer 
 function load() {
          canvas = document.getElementById("webgl-logo");
          gl = canvas.getContext('experimental-webgl');
+_Mmatrix = gl.getUniformLocation(shaderprogram, "Mmatrix");
+_Vmatrix = gl.getUniformLocation(shaderprogram, "Vmatrix");
+_Pmatrix = gl.getUniformLocation(shaderprogram, "Pmatrix");
          // Create and store data into vertex buffer
          vertex_buffer = gl.createBuffer ();
          gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
@@ -180,9 +186,7 @@ function load() {
          gl.linkProgram(shaderprogram);
 
          /*======== Associating attributes to vertex shader =====*/
-         var _Pmatrix = gl.getUniformLocation(shaderprogram, "Pmatrix");
-         var _Vmatrix = gl.getUniformLocation(shaderprogram, "Vmatrix");
-         var _Mmatrix = gl.getUniformLocation(shaderprogram, "Mmatrix");
+         
 
          gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
          var _position = gl.getAttribLocation(shaderprogram, "position");
