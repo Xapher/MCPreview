@@ -145,12 +145,15 @@
          }
          
 var width = window.innerHeight * .95;
-
+var canvas;
+var mo_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
+         var view_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
+var vertex_buffer 
 function load() {
-        var canvas = document.getElementById("webgl-logo");
+         canvas = document.getElementById("webgl-logo");
          gl = canvas.getContext('experimental-webgl');
          // Create and store data into vertex buffer
-         var vertex_buffer = gl.createBuffer ();
+         vertex_buffer = gl.createBuffer ();
          gl.bindBuffer(gl.ARRAY_BUFFER, vertex_buffer);
          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
 
@@ -194,8 +197,7 @@ function load() {
 
          
          var proj_matrix = get_projection(40, canvas.width/canvas.height, 1, 100);
-         var mo_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
-         var view_matrix = [ 1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1 ];
+         
 
          view_matrix[14] = view_matrix[14]-6;
 
